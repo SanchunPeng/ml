@@ -10,7 +10,7 @@ ml5.js构建于Tensorflow.js之上，是一个友好的高级界面，可以访�
 图像分类，人体姿态检测，人体部位分割，图像分割，样式转换，成对的图像转换，条件变分自编码器，深度卷积对抗生成网络，自动完成涂鸦，实时物体检测
 
 - Sound  
-![image](https://sanchunpeng.github.io/ml/images/todosound.jpg)
+![image](https://sanchunpeng.github.io/ml/images/todosound.jpg)  
 音频分类，基因检测
 
 - Text   
@@ -18,7 +18,7 @@ ml5.js构建于Tensorflow.js之上，是一个友好的高级界面，可以访�
 文本生成，情感检测，语义化
 
 - Helpers   
-![image](https://sanchunpeng.github.io/ml/images/todohelper.jpg)
+![image](https://sanchunpeng.github.io/ml/images/todohelper.jpg)  
 特征提取，K近邻分类
 
 ### 2.1、图像识别imageClassifier
