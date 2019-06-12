@@ -6,17 +6,20 @@ ml5.js构建于Tensorflow.js之上，是一个友好的高级界面，可以访�
 
 ## 2、ML5能实现的功能以及使用场景
 - Image
-图像分类，人体姿态检测，人体部位分割
+![image](https://sanchunpeng.github.io/ml/images/todoimage.jpg)
+图像分类，人体姿态检测，人体部位分割，图像分割，样式转换，成对的图像转换，条件变分自编码器，深度卷积对抗生成网络，自动完成涂鸦，实时物体检测
 
-- Sound
-- Text
-- Helpers
+- Sound  
+![image](https://sanchunpeng.github.io/ml/images/todosound.jpg)
+音频分类，基因检测
 
+- Text   
+![image](https://sanchunpeng.github.io/ml/images/todotext.jpg)
+文本生成，情感检测，语义化
 
-
-
-
-
+- Helpers   
+![image](https://sanchunpeng.github.io/ml/images/todohelper.jpg)
+特征提取，K近邻分类
 
 ### 2.1、图像识别imageClassifier
 ml5.imageClassifier()是一种使用预训练模型对图像进行分类的对象的方法。
@@ -35,24 +38,25 @@ ml5.imageClassifier(model, ?video, ?options, ?callback)
 ```
 .classify(input, ?callback)
 ```
+![image](https://sanchunpeng.github.io/ml/images/class1.jpg)
 
-
-
-
-==>
-
-```
-label: '罗宾、美洲罗宾、图尔杜斯候鸟',
-confidence: 0.99
-label: '布兰布林吉拉',
-confidence: 0.20
-label: '杜鹃',
-confidence: 0.03
-```
+也可以将多个图片进行分类
+![image](https://sanchunpeng.github.io/ml/images/class2.jpg)
 
 
 ### 2.2、人体姿态检测poseNet
-ml5.poseNet()用于实时人体姿态检测，可以检测图像/视频中的一个人，也可以检测图像/视频中的多个人。主要用于检测图像或者视频中的人的关键身体关节的位置
+ml5.poseNet()用于实时人体姿态检测，可以检测图像/视频中的一个人，也可以检测图像/视频中的多个人。主要用于检测图像或者视频中的人的关键身体关节的位置。   
+
+![image](https://sanchunpeng.github.io/ml/images/runner.jpg)
+
+
+![image](https://sanchunpeng.github.io/ml/images/runpose.jpg)
+
+不仅可以检测一个人也可以检测多个人：
+![image](https://sanchunpeng.github.io/ml/images/singlehuman.gif)
+
+
+![image](https://sanchunpeng.github.io/ml/images/multihuman.gif)
 
 
 posenet将返回一个pose对象，该对象包含每个被检测者的关键点(关节点)列表和置信度。
@@ -78,6 +82,7 @@ ml5.bodyPix(?video, ?options, ?callback)
 ```
 .segment(?input, ?options, callback);
 ```
+![image](https://sanchunpeng.github.io/ml/images/bodypix.jpg)
 
 ### 2.4、图像分割UNET
 ml5.uNet()可以用于删除图像背景
@@ -86,11 +91,10 @@ ml5.uNet()可以用于删除图像背景
 ml5.uNet(model)
 ml5.uNet(model, ?callback)
 ```
-
-
 ```
 .segment(video, ?callback);
 ```
+
 
 ### 2.5、样式转换styleTransfer
 ml5.styleTransfer()用于将一个图像的样式转换为另一个，这是一个两步的过程，首先需要对一个特定样式的模型进行训练，然后可以将此样式应用到另一个图像。
@@ -104,6 +108,11 @@ ml5.styleTransfer(model, ?video, ?callback)
 .transfer(?callback)
 .transfer(input, ?callback)
 ```
+![image](https://sanchunpeng.github.io/ml/images/styletrans.jpg)
+
+![image](https://sanchunpeng.github.io/ml/images/styletrans1.jpg)
+
+![image](https://sanchunpeng.github.io/ml/images/styletrans2.jpg)
 
 ### 2.6、成对的图像转换pix2pix
 通过训练成对的图像找到对应关系模型，当输入一张图片时，通过对应关系输出相应图片。
@@ -115,8 +124,11 @@ ml5.pix2pix(model, ?callback);
 ```
 .transfer(canvas, ?callback)
 ```
+![image](https://sanchunpeng.github.io/ml/images/pix2pix.jpg)
 
 PS：和styleTransfer的区别是，styleTransfer训练的是要转特定样式的目标图片，pix2pix训练的是成对的图片，学习如何将输入图像映射到输出图像。
+
+
 
 ### 2.7、条件变分自编码器CVAE
 自动编码器是一种神经网络，能够创建输入数据的稀疏表示，因此可以用于图像压缩。在学习了这些稀疏表示之后，有一些去噪自动编码器可以用噪声图像来表示。更妙的是，一种称为变分自动编码器的变体不仅可以学习这些稀疏表示，还可以绘制新图像。
@@ -140,13 +152,12 @@ ml5.DCGAN(?modelPath, ?callback)
 ```
 .generate(callback);
 ```
+![image](https://sanchunpeng.github.io/ml/images/dcgan.jpg)
 
 用代表“露出笑容的女性”的z，减去“女性”，再加上“男性”，最后得到了“露出笑容的男性”
 
 ### 2.9、自动完成涂鸦SketchRNN
 通过记录数以百万记的用户绘制的涂鸦，它不仅记录最终的图像，还记录绘制过程中每笔笔触的顺序和方向，而且不是简单的copy，复制的是概念
-
-
 
 ```
 ml5.SketchRNN(model, ?callback)
@@ -275,10 +286,10 @@ const models = [
   'everything',
 ];
 ```
+![image](https://sanchunpeng.github.io/ml/images/rnn.mov)
 
 
-
-
+![image](https://sanchunpeng.github.io/ml/images/rnn.jpg)
 
 
 ### 2.10、实时物体检测YOLO
@@ -296,7 +307,7 @@ ml5.YOLO(?options, ?callback)
 .detect(input, ?callback)
 .detect(?callback)
 ```
-
+![image](![image](https://sanchunpeng.github.io/ml/images/yolo.jpg))
 
 ### 2.11 音频分类soundClassifier
 通过已训练好的模型，可以检测到是否发出了某种噪音（如拍手声或哨子）或是否说了某个词（如上、下、是、否）
@@ -340,6 +351,7 @@ ml5.charRNN(model, ?callback)
 ```
 使用ml5已经训练好的模型woolf，设置length和temperatue
 
+![image](https://sanchunpeng.github.io/ml/images/charrnn.jpg)
 
 ### 2.14 情感预测Sentiment
 当输入一串文本，判断该文本的情感，负面情感或者正面情感
@@ -352,6 +364,7 @@ ml5.sentiment( 'moviereviews', callback )
 .predict(text);
 ```
 ml5目前支持了一个电影评论的情感分析moviereviews，对于很长的评论截取了最多200个单词，而且去除了一些生僻次，输出0表示强烈的负面情感，1表示强烈的正面情感
+![image](https://sanchunpeng.github.io/ml/images/sentiment.jpg)
 
 ### 2.15 语义化word2vec
 单词word转换成向量vector来表示，通过词向量来表征语义信息。在常见的自然语言处理系统中，单词的编码是任意的，因此无法向系统提供各个符号之间可能存在关系的有用信息，还会带来数据稀疏问题。使用向量对词进行表示可以克服其中的一些障碍。  
@@ -361,12 +374,15 @@ ml5目前支持了一个电影评论的情感分析moviereviews，对于很长�
 Word2Vec(model, ?callback)
 
 ```
+
 ### 2.15 特征提取featureExtractor
 图像分类是在一个大数据集上训练出的模型来将图像分类为固定的类别集。而其中就有一个过程是特征提取，这个过程中训练出的模型可以和其他新的数据集一起训练从而得到新的分类模型，这样可以大大减少训练时间
 ```
 ml5.featureExtractor(model, ?callback)
 ml5.featureExtractor(model, ?options, ?callback)
 ```
+
+
 ### 2.16 K近邻分离器KNNClassifier
 简单的理解为由那离自己最近的K个点来投票决定待分类数据归为哪一类，与库中其他几个分类器不同的是他使用其他模型的输出或任何其他可以分类的数据构建一个KNN模型
 ```
@@ -379,9 +395,26 @@ ml5.KNNClassifier();
 
 ```
 
-## 3、是否使用p5.js的写法区别（以图像识别为例）
-##### 不使用p5.js
+## 3、使用p5.js有什么好处，是否使用有什么区别
 
+http://alpha.editor.p5js.org/   
+https://p5js.org/reference/   
+```
+preload()
+setup()
+draw()
+remove()
+disableFriendlyErrors
+noLoop()
+loop()
+push()
+pop()
+redraw()
+```
+p5.js程序总是从setup()开始执行，执行过一次setup()后，便进入draw()函数的不断循环调用。
+优势：提供了一整套绘图API而且可以操作DOM，比我们自己操作DOM、绘图方便多了
+
+##### 不使用p5.js
 ```
 // Initialize the Image Classifier method with MobileNet
 const classifier = ml5.imageClassifier('MobileNet', modelLoaded);
@@ -395,11 +428,10 @@ function modelLoaded() {
 classifier.classify(document.getElementById('image'), function(err, results) {
   console.log(results);
 });
-
-
-
+```
 
 ##### 使用p5.js
+
 ```
 // Initialize the Image Classifier method with MobileNet. A callback needs to be passed.
 let classifier;
@@ -412,7 +444,7 @@ function preload() {
 function modelReady(){
   console.log('Model Loaded!');
 }
-function setup() {
+function setup() {  //setup函数，每次程序开始运行时执行一次，用于初始化。 
   createCanvas(400, 400);
   classifier.classify(img, gotResult);
   image(img, 0, 0);
@@ -425,28 +457,14 @@ function gotResult(error, results) {
   }
   // The results are in an array ordered by confidence.
   console.log(results);
-  createDiv("Label:" + results[0].label);
+  createDiv("Label:" + results[0].label);  //用于创建DOM
   createDiv("Confidence: " + nf(results[0].confidence, 0, 2));
 }
 // draw() will not show anything until poses are found
-function draw() {
+function draw() {  //draw函数，每秒运行60次，不断地在画布上绘制图形
 }
 ```
 
-
-PS:  
-preload  
-loadImage //加载图片  
-modelReady  
-setup   
-createCanvas  
-image  
-gotResult  
-createDiv、createP... //用于创建DOM 
-
-
-
-
-### 使用ml5的一些优缺点：
-1、目前的ml5设置不支持node.js，所有ml5.js功能都基于使用浏览器GPU
-2、正因为ml5的功能是基于浏览器的，只需在浏览器中运行，不会依赖专门的硬件、系统配置，而且是实时的。
+## 4、使用ml5的一些优缺点：
+- 1、目前的ml5设置不支持node.js，所有ml5.js功能都基于使用浏览器GPU  
+- 2、正因为ml5的功能是基于浏览器的，只需在浏览器中运行，不会依赖专门的硬件、系统配置，而且是实时的。
