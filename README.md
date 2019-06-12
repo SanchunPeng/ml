@@ -18,7 +18,7 @@ ml5.js构建于Tensorflow.js之上，是一个友好的高级界面，可以访�
 文本生成，情感检测，语义化
 
 - Helpers   
-![image](https://sanchunpeng.github.io/ml/images/todohelper.jpg)
+![image](https://sanchunpeng.github.io/ml/images/todohelper.jpg)  
 特征提取，K近邻分类
 
 ### 2.1、图像识别imageClassifier
