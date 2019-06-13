@@ -321,7 +321,7 @@ ml5.YOLO(?options, ?callback)
 ```
 ![image](https://sanchunpeng.github.io/ml/images/yolo.jpg)
 
-### 2.11 音频分类soundClassifier
+### 2.11 音频识别soundClassifier
 通过已训练好的模型，可以检测到是否发出了某种噪音（如拍手声或哨子）或是否说了某个词（如上、下、是、否）
 比如SpeechCommands18w模型，可以识别“0”到“9”、“up”、“down”、“left”、“right”、“go”、“stop”、“yes”、“no”
 ```
