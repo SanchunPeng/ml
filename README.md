@@ -9,11 +9,11 @@ ml5.js构建于Tensorflow.js之上，是一个友好的高级界面，可以访�
 ## 2、ML5能实现的功能以及使用场景
 - Image
 ![image](https://sanchunpeng.github.io/ml/images/todoimage.jpg)
-图像分类，人体姿态检测，人体部位分割，图像分割，样式转换，成对的图像转换，条件变分自编码器，深度卷积对抗生成网络，自动完成涂鸦，实时物体检测
+图像识别，人体姿态检测，人体部位分割，图像分割，样式转换，成对的图像转换，条件变分自编码器，深度卷积对抗生成网络，自动完成涂鸦，实时物体检测
 
 - Sound  
 ![image](https://sanchunpeng.github.io/ml/images/todosound.jpg)   
-音频分类，基因检测
+音频识别，基因检测
 
 - Text   
 ![image](https://sanchunpeng.github.io/ml/images/todotext.jpg)
